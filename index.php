@@ -3,7 +3,7 @@
 Plugin Name: WP SlimStat Dashboard Widgets
 Plugin URI: http://wordpress.org/extend/plugins/wp-slimstat/
 Description: Monitor your visitors from your Wordpress dashboard.
-Version: 3.0
+Version: 3.0.1
 Author: Camu
 Author URI: http://www.duechiacchiere.it/
 */
@@ -13,6 +13,8 @@ class wp_slimstat_dashboard_widgets{
 	 * Loads localization files and adds a few actions
 	 */
 	public static function init(){
+		if (!class_exists('wp_slimstat')) return true;
+	
 		// Add some custom stylesheets
 		add_action('admin_print_styles-index.php', array(__CLASS__, 'wp_slimstat_dashboard_widgets_css_js'));
 
