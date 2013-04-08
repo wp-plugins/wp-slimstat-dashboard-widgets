@@ -34,4 +34,4 @@ WP SlimStat Dashboard Widgets uses the HTML5 Canvas element to display its chart
 * Fixed: fatal error when WP SlimStat was deactivated (thank you, [R4C](http://wordpress.org/support/topic/fatal-error-cant-log-into-wp-dashboard))
 
 = 3.0 =
-* Initial release ad a standalone plugin
+* Initial release as a standalone plugin
