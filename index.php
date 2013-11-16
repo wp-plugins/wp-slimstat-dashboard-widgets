@@ -3,7 +3,7 @@
 Plugin Name: WP SlimStat Dashboard Widgets
 Plugin URI: http://wordpress.org/plugins/wp-slimstat-dashboard-widgets/
 Description: Monitor your visitors from your Wordpress dashboard. Requires WP SlimStat 3.3.4+
-Version: 3.1
+Version: 3.1.1
 Author: Camu
 Author URI: http://slimstat.getused.to.it
 */
@@ -41,8 +41,15 @@ class wp_slimstat_dashboard_widgets{
 	 * Attaches all the widgets to the dashboard
 	 */
 	public static function add_dashboard_widgets(){
-		if (!empty(wp_slimstat::$options['can_view']) && !in_array($GLOBALS['current_user']->user_login, array_map('strtolower', wp_slimstat::string_to_array(wp_slimstat::$options['can_view']))) && !in_array($GLOBALS['current_user']->user_login, array_map('strtolower', wp_slimstat::string_to_array(wp_slimstat::$options['can_admin']))) && !current_user_can('manage_options'))
-			return;
+		// If this user is whitelisted, we use the minimum capability
+		if (strpos(wp_slimstat::$options['can_view'], $GLOBALS['current_user']->user_login) === false){
+			$minimum_capability = wp_slimstat::$options['capability_can_view'];
+		}
+		else{
+			$minimum_capability = 'read';
+		}
+
+		if (!current_user_can($minimum_capability)) return;
 
 		include_once(WP_PLUGIN_DIR."/wp-slimstat/admin/view/wp-slimstat-reports.php");
 		wp_slimstat_reports::init();
