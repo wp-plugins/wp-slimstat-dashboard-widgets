@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP SlimStat Dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-07 14:16-0500\n"
-"PO-Revision-Date: 2013-02-07 14:16-0500\n"
-"Last-Translator: due chiacchiere <info@duechiacchiere.it>\n"
+"POT-Creation-Date: 2013-12-18 20:34-0500\n"
+"PO-Revision-Date: 2013-12-18 20:34-0500\n"
+"Last-Translator: get used to it <support@getused.to.it>\n"
 "Language-Team: due chiacchiere <info@duechiacchiere.it>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -13,16 +13,16 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: s;\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../wp-slimstat-dashboard.php:57
+#: ../index.php:67
 msgid "Pageviews"
-msgstr "Просмотров"
+msgstr "Просмотры за"
 
-#: ../wp-slimstat-dashboard.php:57
+#: ../index.php:67
 msgid "Unique IPs"
-msgstr "Уникальных IP"
+msgstr "Уникальные IP"
 
 #~ msgid "No data to display"
 #~ msgstr "Нет данных"

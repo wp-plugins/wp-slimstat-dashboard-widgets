@@ -3,8 +3,8 @@ Contributors: coolmann
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BNJR5EZNY3W38
 Tags: chart, analytics, visitors, users, spy, shortstat, tracking, reports, seo, referers, analyze, wassup, geolocation, online users, spider, tracker, pageviews, world map, stats, maxmind, flot, stalker, statistics, google+, monitor, seo
 Requires at least: 3.1
-Tested up to: 3.7
-Stable tag: 3.1.1
+Tested up to: 3.8
+Stable tag: 3.1.2
 
 == Description ==
 Add-on for WP SlimStat to allow admins to monitor their visitors directly from their WordPress dashboard.

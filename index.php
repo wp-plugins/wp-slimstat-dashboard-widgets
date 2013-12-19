@@ -2,8 +2,8 @@
 /*
 Plugin Name: WP SlimStat Dashboard Widgets
 Plugin URI: http://wordpress.org/plugins/wp-slimstat-dashboard-widgets/
-Description: Monitor your visitors from your Wordpress dashboard. Requires WP SlimStat 3.3.4+
-Version: 3.1.1
+Description: Monitor your visitors from your Wordpress dashboard. Requires WP SlimStat 3.5+
+Version: 3.1.2
 Author: Camu
 Author URI: http://slimstat.getused.to.it
 */
@@ -28,7 +28,7 @@ class wp_slimstat_dashboard_widgets{
 	 * Loads a custom stylesheet file for the administration panels
 	 */
 	public static function wp_slimstat_dashboard_widgets_css_js(){
-		wp_register_style('wp-slimstat-dashboard-widgets', plugins_url('/css/style.css', __FILE__));
+		wp_register_style('wp-slimstat-dashboard-widgets', WP_PLUGIN_URL.'/wp-slimstat/admin/css/slimstat.css');
 		wp_enqueue_style('wp-slimstat-dashboard-widgets');
 		wp_enqueue_script('slimstat_flot', WP_PLUGIN_URL.'/wp-slimstat/admin/js/jquery.flot.min.js', array('jquery'), '0.7');
 		wp_enqueue_script('slimstat_flot_navigate', WP_PLUGIN_URL.'/wp-slimstat/admin/js/jquery.flot.navigate.min.js', array('jquery','slimstat_flot'), '0.7');
