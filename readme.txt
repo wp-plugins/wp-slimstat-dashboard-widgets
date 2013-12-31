@@ -4,10 +4,10 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: chart, analytics, visitors, users, spy, shortstat, tracking, reports, seo, referers, analyze, wassup, geolocation, online users, spider, tracker, pageviews, world map, stats, maxmind, flot, stalker, statistics, google+, monitor, seo
 Requires at least: 3.1
 Tested up to: 3.8
-Stable tag: 3.1.2
+Stable tag: 3.1.3
 
 == Description ==
-Add-on for WP SlimStat to allow admins to monitor their visitors directly from their WordPress dashboard.
+Add-on for WP SlimStat to allow admins to monitor their visitors directly from their WordPress dashboard. Requires WP SlimStat 3.5.1+
 
 = Browser Compatibility =
 WP SlimStat Dashboard Widgets uses the HTML5 Canvas element to display its charts. Unfortunately Internet Explorer 8 and older versions don't support this functionality, so you're encouraged to upgrade your browser.
