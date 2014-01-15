@@ -2,8 +2,8 @@
 /*
 Plugin Name: WP SlimStat Dashboard Widgets
 Plugin URI: http://wordpress.org/plugins/wp-slimstat-dashboard-widgets/
-Description: Monitor your visitors from your Wordpress dashboard. Requires WP SlimStat 3.5.1+
-Version: 3.1.3
+Description: Monitor your visitors from your Wordpress dashboard. Requires WP SlimStat 3.5.2+
+Version: 3.1.4
 Author: Camu
 Author URI: http://slimstat.getused.to.it
 */
@@ -31,8 +31,6 @@ class wp_slimstat_dashboard_widgets{
 	public static function wp_slimstat_dashboard_widgets_css_js(){
 		wp_register_style('wp-slimstat-dashboard-widgets', WP_PLUGIN_URL.'/wp-slimstat/admin/css/slimstat.css');
 		wp_enqueue_style('wp-slimstat-dashboard-widgets');
-		wp_enqueue_script('slimstat_flot', WP_PLUGIN_URL.'/wp-slimstat/admin/js/jquery.flot.min.js', array('jquery'), '0.7');
-		wp_enqueue_script('slimstat_flot_navigate', WP_PLUGIN_URL.'/wp-slimstat/admin/js/jquery.flot.navigate.min.js', array('jquery','slimstat_flot'), '0.7');
 		wp_enqueue_script('slimstat_admin', WP_PLUGIN_URL.'/wp-slimstat/admin/js/slimstat.admin.js');
 		wp_localize_script('slimstat_admin', 'SlimStatParams', array('async_load' => wp_slimstat::$options['async_load']));
 	}
@@ -64,20 +62,16 @@ class wp_slimstat_dashboard_widgets{
 
 	// Widget wrappers
 	public static function slim_p1_01(){
-		wp_slimstat_reports::show_chart('slim_p1_01', wp_slimstat_db::extract_data_for_chart('COUNT(t1.ip)', 'COUNT(DISTINCT(t1.ip))'), array(__('Pageviews','wp-slimstat-dashboard-widgets'), __('Unique IPs','wp-slimstat-dashboard-widgets')));
+		wp_slimstat_reports::show_chart('slim_p1_01', wp_slimstat_db::get_data_for_chart('COUNT(t1.ip)', 'COUNT(DISTINCT(t1.ip))'), array(__('Pageviews','wp-slimstat-dashboard-widgets'), __('Unique IPs','wp-slimstat-dashboard-widgets')));
 	}	
 	public static function slim_p1_02(){
 		wp_slimstat_reports::show_about_wpslimstat('slim_p1_02');
 	}
 	public static function slim_p1_03(){
-		wp_slimstat_reports::show_overview_summary('slim_p1_03', wp_slimstat_db::count_records(), wp_slimstat_db::extract_data_for_chart('COUNT(t1.ip)', 'COUNT(DISTINCT(t1.ip))'));
+		wp_slimstat_reports::show_overview_summary('slim_p1_03', wp_slimstat_db::count_records(), wp_slimstat_db::get_data_for_chart('COUNT(t1.ip)', 'COUNT(DISTINCT(t1.ip))'));
 	}
 	public static function slim_p1_04(){
-		$last_five_minutes = date_i18n('U')-300;
-		$temp_date_sql_filters = wp_slimstat_db::$filters['date_sql_where'];
-		wp_slimstat_db::$filters['date_sql_where'] = '';
-		wp_slimstat_reports::show_results('recent', 'slim_p1_04', 'user', array('custom_where' => 't1.dt > '.$last_five_minutes));
-		wp_slimstat_db::$filters['date_sql_where'] = $temp_date_sql_filters;
+		wp_slimstat_reports::show_results('recent', 'slim_p1_04', 'user', array('custom_where' => 't1.user <> "" AND t1.dt > '.(date_i18n('U')-300), 'use_date_filters' => false));
 	}
 	public static function slim_p1_05(){
 		wp_slimstat_reports::show_spy_view('slim_p1_05');
@@ -86,7 +80,7 @@ class wp_slimstat_dashboard_widgets{
 		wp_slimstat_reports::show_results('recent', 'slim_p1_06', 'searchterms');
 	}
 	public static function slim_p1_08(){
-		wp_slimstat_reports::show_results('popular', 'slim_p1_08', 'SUBSTRING_INDEX(t1.resource, "?", 1)', array('total_for_percentage' => $current_pageviews, 'as_column' => 'resource', 'filter_op' => 'contains'));
+		wp_slimstat_reports::show_results('popular', 'slim_p1_08', 'SUBSTRING_INDEX(t1.resource, "?", 1)', array('total_for_percentage' => wp_slimstat_db::count_records(), 'as_column' => 'resource', 'filter_op' => 'contains'));
 	}
 	public static function slim_p1_11(){
 		wp_slimstat_reports::show_results('popular_complete', 'slim_p1_11', 'user', array('total_for_percentage' => wp_slimstat_db::count_records('t1.user <> ""')));
