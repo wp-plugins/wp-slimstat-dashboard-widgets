@@ -3,7 +3,7 @@
 Plugin Name: WP SlimStat Dashboard Widgets
 Plugin URI: http://wordpress.org/plugins/wp-slimstat-dashboard-widgets/
 Description: Monitor your visitors from your Wordpress dashboard. Requires WP SlimStat 3.5.2+
-Version: 3.1.4
+Version: 3.1.5
 Author: Camu
 Author URI: http://slimstat.getused.to.it
 */
@@ -18,7 +18,7 @@ class wp_slimstat_dashboard_widgets{
 			return true;
 	
 		// Add some custom stylesheets
-		add_action('admin_print_styles-index.php', array(__CLASS__, 'wp_slimstat_dashboard_widgets_css_js'));
+		add_action('admin_print_styles', array(__CLASS__, 'wp_slimstat_dashboard_widgets_css_js'));
 
 		// Hook into the 'wp_dashboard_setup' action to register our function
 		add_action('wp_dashboard_setup', array(__CLASS__, 'add_dashboard_widgets'));
@@ -29,9 +29,9 @@ class wp_slimstat_dashboard_widgets{
 	 * Loads a custom stylesheet file for the administration panels
 	 */
 	public static function wp_slimstat_dashboard_widgets_css_js(){
-		wp_register_style('wp-slimstat-dashboard-widgets', WP_PLUGIN_URL.'/wp-slimstat/admin/css/slimstat.css');
+		wp_register_style('wp-slimstat-dashboard-widgets', plugins_url('/wp-slimstat/admin/css/slimstat.css', dirname(__FILE__)));
 		wp_enqueue_style('wp-slimstat-dashboard-widgets');
-		wp_enqueue_script('slimstat_admin', WP_PLUGIN_URL.'/wp-slimstat/admin/js/slimstat.admin.js');
+		wp_enqueue_script('slimstat_admin', plugins_url('/wp-slimstat/admin/js/slimstat.admin.js', dirname(__FILE__)));
 		wp_localize_script('slimstat_admin', 'SlimStatParams', array('async_load' => wp_slimstat::$options['async_load']));
 	}
 	// end wp_slimstat_stylesheet
