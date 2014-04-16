@@ -3,7 +3,7 @@
 Plugin Name: WP SlimStat Dashboard Widgets
 Plugin URI: http://wordpress.org/plugins/wp-slimstat-dashboard-widgets/
 Description: Monitor your visitors from your Wordpress dashboard. Requires WP SlimStat 3.5.2+
-Version: 3.1.5
+Version: 3.1.6
 Author: Camu
 Author URI: http://slimstat.getused.to.it
 */
@@ -83,7 +83,7 @@ class wp_slimstat_dashboard_widgets{
 		wp_slimstat_reports::show_results('popular', 'slim_p1_08', 'SUBSTRING_INDEX(t1.resource, "?", 1)', array('total_for_percentage' => wp_slimstat_db::count_records(), 'as_column' => 'resource', 'filter_op' => 'contains'));
 	}
 	public static function slim_p1_11(){
-		wp_slimstat_reports::show_results('popular_complete', 'slim_p1_11', 'user', array('total_for_percentage' => wp_slimstat_db::count_records('t1.user <> ""')));
+		wp_slimstat_reports::show_results('popular', 'slim_p1_11', 'user', array('total_for_percentage' => wp_slimstat_db::count_records('t1.user <> ""')));
 	}
 	public static function slim_p1_12(){
 		wp_slimstat_reports::show_results('popular', 'slim_p1_12', 'searchterms', array('total_for_percentage' => wp_slimstat_db::count_records('t1.searchterms <> ""')));
