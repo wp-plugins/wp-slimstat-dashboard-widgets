@@ -3,7 +3,7 @@
 Plugin Name: WP SlimStat Dashboard Widgets
 Plugin URI: http://wordpress.org/plugins/wp-slimstat-dashboard-widgets/
 Description: Monitor your visitors from your Wordpress dashboard. Requires WP SlimStat 3.5.2+
-Version: 3.1.6
+Version: 3.1.7
 Author: Camu
 Author URI: http://slimstat.getused.to.it
 */
@@ -32,7 +32,7 @@ class wp_slimstat_dashboard_widgets{
 		wp_register_style('wp-slimstat-dashboard-widgets', plugins_url('/wp-slimstat/admin/css/slimstat.css', dirname(__FILE__)));
 		wp_enqueue_style('wp-slimstat-dashboard-widgets');
 		wp_enqueue_script('slimstat_admin', plugins_url('/wp-slimstat/admin/js/slimstat.admin.js', dirname(__FILE__)));
-		wp_localize_script('slimstat_admin', 'SlimStatParams', array('async_load' => wp_slimstat::$options['async_load']));
+		wp_localize_script('slimstat_admin', 'SlimStatAdminParams', array('async_load' => wp_slimstat::$options['async_load']));
 	}
 	// end wp_slimstat_stylesheet
 
