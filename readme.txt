@@ -7,7 +7,7 @@ Tested up to: 3.8
 Stable tag: 3.2
 
 == Description ==
-This plugin has been discontinued. Dashboard widgets are now available directly in [Slimstat 4.0](https://wordpress.org/plugins/wp-slimstat/). Go get your copy today!
+This plugin has been discontinued. Dashboard widgets are now available directly in [Slimstat 4](https://wordpress.org/plugins/wp-slimstat/). Go get your copy today!
 
 == Installation ==
 
